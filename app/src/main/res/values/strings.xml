@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SInfo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_subject_list">LISTA PRZEDMIOTÓW</string>
+    <string name="title_subject_detail">SZCZEGÓŁY PRZEDMIOTU</string>
+    <string name="title_subject_task_edit">EDYCJA ZALICZENIA</string>
+</resources>
