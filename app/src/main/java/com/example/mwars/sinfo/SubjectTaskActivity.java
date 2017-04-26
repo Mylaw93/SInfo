@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -71,7 +72,7 @@ public class SubjectTaskActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
 
-
+            Log.d("__BD_EXTRAS_: ", String.valueOf(getIntent().getBundleExtra(BUNDLE_EXTRAS)));
             Bundle extras = new Bundle();
             extras.putString(SubjectTaskFragment.ARG_ITEM_ID,
                     String.valueOf(getIntent().getBundleExtra(BUNDLE_EXTRAS).getInt(EXTRAS_ID)));

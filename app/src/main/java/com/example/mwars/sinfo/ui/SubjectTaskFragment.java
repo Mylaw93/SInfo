@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.mwars.sinfo.R;
 import com.example.mwars.sinfo.SubjectListActivity;
 import com.example.mwars.sinfo.SubjectTaskActivity;
+import com.example.mwars.sinfo.SubjectTaskDetailActivity;
 import com.example.mwars.sinfo.SubjectTaskEditActivity;
 import com.example.mwars.sinfo.adapter.SubjectTasklListAdapter;
 import com.example.mwars.sinfo.model.Subject;
@@ -37,6 +38,7 @@ public class SubjectTaskFragment extends Fragment implements SubjectTasklListAda
     private final static String TASK_BUDLE_EXTRAS = "TASK_BUDLE_EXTRAS";
     private final static String EXTRAS_ID = "EXTRAS_ID";
     private final static String TASK_ID = "TASK_ID";
+    private final static String SUBJECT_ID = "SUBJECT_ID";
 
 
     private static ArrayList<Task> _TASK_DATA = new ArrayList<>();
@@ -54,16 +56,6 @@ public class SubjectTaskFragment extends Fragment implements SubjectTasklListAda
         initDataset();
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
-//            mSubject = SubjectContent.getSubjectItems().get(Integer.parseInt(getArguments().getString(ARG_ITEM_ID)));
-//            Log.d("_SUB_ITEM_FROM_LIST:", SubjectContent.getSubjectItems().get(Integer.parseInt(getArguments().getString(ARG_ITEM_ID))).get_name());
-
-
-//            mItem = SubjectContent.getMapItems().get(getArguments().getString(ARG_ITEM_ID));
-//            Log.d("_SUB_ITEM_FROM_MAP:", SubjectContent.getMapItems().get(getArguments().getInt(ARG_ITEM_ID)).get_name());
-
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
@@ -77,16 +69,13 @@ public class SubjectTaskFragment extends Fragment implements SubjectTasklListAda
     public void initDataset() {
         String subID = getArguments().getString(ARG_ITEM_ID);
         _SUBJECT = SubjectContent.getMapItems().get(subID);
-        _TASK_DATA = SubjectContent.getMapItems().get(subID).get_tasks();
+        _TASK_DATA = _SUBJECT.get_tasks();
         _SUBJECT_DATA = SubjectContent.getMapItems();
 //        Log.d("__SUB_ID_: ", subID);
 //        Log.d("_SUBJECT_", _SUBJECT.get_name());
-//        for (Task t : _TASK_DATA){
+//        for (Task t : _TASK_DATA)
 //            Log.d("LOG: ", t.toString());
-//        }
     }
-
-
 
 
     @Override
@@ -105,12 +94,18 @@ public class SubjectTaskFragment extends Fragment implements SubjectTasklListAda
 
     @Override
     public void onItemClick(int pos) {
-        Intent intent = new Intent(super.getContext(), SubjectTaskActivity.class);
+        Intent intent = new Intent(super.getContext(), SubjectTaskDetailActivity.class);
         Bundle extras = new Bundle();
         extras.putInt(TASK_ID, _TASK_DATA.get(pos).get_id());
+        extras.putInt(SUBJECT_ID, _SUBJECT.get_id());
+//        SubjectTaskDetailFragment fragment = new SubjectTaskDetailFragment();
+//        fragment.setArguments(extras);
+//        getActivity().getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.subject_detail_container, fragment).commit();
+
         intent.putExtra(TASK_BUDLE_EXTRAS, extras);
         Toast.makeText(super.getContext(), "_TASK_ID_" + String.valueOf(pos) + ": " + _TASK_DATA.get(pos).get_name() , Toast.LENGTH_LONG).show();
-//        startActivity(intent);
+        startActivity(intent);
     }
 
     @Override
@@ -121,6 +116,8 @@ public class SubjectTaskFragment extends Fragment implements SubjectTasklListAda
 //            Log.d("_TASK_NAME_:", t.get_name());
 //        }
 //        ImageView imgView = (ImageView) getActivity().findViewById(R.id.img_fav);
+        Toast.makeText(super.getContext(), "_TASK_ID_" + String.valueOf(pos) + ": " + _TASK_DATA.get(pos).get_name() , Toast.LENGTH_LONG).show();
+
         Task task = _TASK_DATA.get(pos);
 
         if (task.isFavorite() == true) {

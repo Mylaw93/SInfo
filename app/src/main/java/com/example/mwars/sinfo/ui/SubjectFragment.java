@@ -65,35 +65,17 @@ public class SubjectFragment extends Fragment  implements SubjectListAdapter.Ite
         extras.putInt(EXTRAS_ID, _SUBJECT_DATA.get(pos).get_id());
         intent.putExtra(BUNDLE_EXTRAS, extras);
         startActivity(intent);
-//        Toast.makeText(super.getContext(), "ON ITEM CLICK", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onItemIconClick(int pos) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-//        intent.putExtra(Intent.EXTRA_TEXT, "Share you subject tasks");
         intent.putExtra(Intent.EXTRA_TEXT,
                         _SUBJECT_DATA.get(pos).get_name() + " \n" +
                         _SUBJECT_DATA.get(pos).get_details());
-        intent.createChooser(intent, "SHARE");
-        startActivity(intent);
+        startActivity(Intent.createChooser(intent, "Udostępniasz: " + _SUBJECT_DATA.get(pos).get_name()));
     }
 }
-
-//        intent.setType("text/plain");
-
-//        intent.createChooser(intent, "SHARE VIA MSGR");
-//        startActivity(intent);
-//        Toast.makeText(super.getContext(), "ON ITEM ICON CLICK", Toast.LENGTH_LONG).show();
-//    }
-
-
-    //    private void setupRecyclerView(RecyclerView recyclerView) {
-//        Log.d("SETUP_ADAPTER", "IN PROGRESS");
-//
-//        Log.d("SETUP_ADAPTER", "DONE");
-//
-//    }
 
 

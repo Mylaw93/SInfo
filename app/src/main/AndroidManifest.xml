@@ -39,8 +39,15 @@
         <activity
             android:name=".SubjectTaskEditActivity"
             android:label="@string/title_subject_task_edit"
-            android:parentActivityName=".SubjectTaskActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".SubjectTaskActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.mwars.sinfo.SubjectTaskActivity" />
+        </activity>
+        <activity
+            android:name=".SubjectTaskDetailActivity"
+            android:label="@string/title_subject_task_detail"
+            android:parentActivityName=".SubjectTaskActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.mwars.sinfo.SubjectTaskActivity" />

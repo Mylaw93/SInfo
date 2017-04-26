@@ -13,7 +13,6 @@ import com.example.mwars.sinfo.R;
 import com.example.mwars.sinfo.model.Task;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by mwars on 11.04.2017.
@@ -50,7 +49,7 @@ public class SubjectTasklListAdapter extends RecyclerView.Adapter<SubjectTasklLi
 
     public void setListData(ArrayList<Task> taskList) {
         this._taskList.clear();
-        this._taskList.addAll((List) taskList);
+        this._taskList.addAll(taskList);
         Log.d("__LIST_SIZE__", String.valueOf(this._taskList.size()));
     }
 

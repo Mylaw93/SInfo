@@ -75,9 +75,7 @@ public class SubjectContent {
         addItem(new Subject(15, 5, "Język Angielski", "Sprawdzenie umiejętności z posługiwania się językiem angielskim na poziomie średniozaawansowanym B1"));
     }
 
-    public static ArrayList<Subject> getSubjectItems(){
-        return SUBJECT_ITEMS;
-    }
+    public static ArrayList<Subject> getSubjectItems() { return SUBJECT_ITEMS; }
     public static Map<String, Subject> getMapItems() { return SUBJECT_MAP; }
 
     private static void addItem(Subject item){
