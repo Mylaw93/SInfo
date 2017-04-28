@@ -23,4 +23,9 @@
         <item name="android:fitsSystemWindows">true</item>
     </style>
 
+    <style name="CheckBox_style" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

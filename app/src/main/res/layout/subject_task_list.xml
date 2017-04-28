@@ -7,5 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layoutManager="LinearLayoutManager"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:fitsSystemWindows="true"
     tools:context="com.example.mwars.sinfo.SubjectListActivity"
     tools:listitem="@layout/subject_task_list_content" />

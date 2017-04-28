@@ -31,6 +31,8 @@ public class SubjectFragment extends Fragment  implements SubjectListAdapter.Ite
     private static ArrayList<Subject> _SUBJECT_DATA;
     private static Map<String, Subject> _SUBJECT_MAP = new HashMap<>();
 
+    public static SubjectListAdapter subListAdapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,7 @@ public class SubjectFragment extends Fragment  implements SubjectListAdapter.Ite
         View rootView = inflater.inflate(R.layout.subject_list, container, false);
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.list);
         assert recyclerView != null;
-        SubjectListAdapter subListAdapter = new SubjectListAdapter(getActivity().getApplicationContext(), _SUBJECT_DATA);
+        subListAdapter = new SubjectListAdapter(getActivity().getApplicationContext(), _SUBJECT_DATA);
         subListAdapter.setItemClickCallback(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(subListAdapter);
