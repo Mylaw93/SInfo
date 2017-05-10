@@ -80,8 +80,5 @@ public class Subject {
             sb.append(t.get_name() + "\n");
         }
         return sb.toString();
-
     }
-
-
 }

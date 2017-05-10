@@ -26,18 +26,17 @@
             android:layout_width="match_parent"
             android:layout_height="6dp"
             android:id="@+id/subject_progress_bar"
-            android:background="@drawable/progress_bar_style" />
+            android:background="@drawable/overlap_style" />
 
         <TextView
             android:id="@+id/text_tasks_status"
             android:text="0 / 5"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceListItem"
             android:visibility="visible"
             android:textSize="8sp"
             android:gravity="top|right"
-            android:layout_weight="0"
             android:layout_marginLeft="4dp" />
 
         <LinearLayout
@@ -46,8 +45,7 @@
             android:layout_gravity="center"
             android:weightSum="5"
             android:elevation="0dp"
-            android:layout_height="60dp"
-            android:layout_margin="4dp">
+            android:layout_height="60dp">
 
             <TextView
                 android:id="@+id/text_id"
@@ -77,7 +75,7 @@
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="4">
+                android:layout_weight="4.3">
 
                 <TextView
                     android:id="@+id/text_name"
@@ -106,9 +104,10 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:weightSum="2"
-                android:layout_width="0dp">
+                android:layout_width="0dp"
+                android:layout_gravity="right">
 
                 <ImageView
                     android:layout_height="match_parent"
@@ -119,9 +118,7 @@
                     android:actionProviderClass="android.widget.ShareActionProvider"
                     android:background="@drawable/background_state_drawable"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:padding="2dp" />
+                    android:layout_weight="1" />
 
                 <ImageView
                     android:layout_height="match_parent"
@@ -132,9 +129,7 @@
                     android:actionProviderClass="android.widget.ShareActionProvider"
                     android:background="@drawable/background_state_drawable"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:padding="2dp" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
         </LinearLayout>

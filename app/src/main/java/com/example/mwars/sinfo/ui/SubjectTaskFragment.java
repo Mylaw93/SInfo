@@ -137,4 +137,14 @@ public class SubjectTaskFragment extends Fragment implements SubjectTasklListAda
         subjectTasklListAdapter.notifyDataSetChanged();
         SubjectFragment.subListAdapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onShareTaskClick(int pos) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT,
+                _TASK_DATA.get(pos).get_name() + " \n" +
+                        _TASK_DATA.get(pos).get_desc());
+        startActivity(Intent.createChooser(intent, "Udostępniasz: " + _TASK_DATA.get(pos).get_name()));
+        }
 }
