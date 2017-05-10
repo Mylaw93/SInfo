@@ -3,7 +3,7 @@ package com.example.mwars.sinfo.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -51,9 +51,10 @@ public class SubjectTaskFragment extends Fragment implements SubjectTasklListAda
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             Activity activity = this.getActivity();
-            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+            AppBarLayout appBarLayout = (AppBarLayout) activity.findViewById(R.id.app_bar);
+//            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(_SUBJECT.get_name());
+//                appBarLayout.setTitle(_SUBJECT.get_name());
             }
         }
     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.mwars.sinfo.R;
@@ -31,7 +32,8 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
 
     public interface ItemClickCallback{
         void onItemClick(int pos);
-        void onItemIconClick(int pos);
+        void onItemShareIconClick(int pos);
+        void onItemEditIconClick(int pos);
     }
 
 
@@ -68,15 +70,18 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
         holder.SEM.setText(String.valueOf(sub.get_sem()));
         holder.NAME.setText(sub.get_name());
         holder.DETAILS.setText(sub.get_details());
-        holder.TASK_COUNT.setText("ILOŚĆ ZADAŃ: " + sub.get_tasks().size());
         int done = 0;
         for(Task t : sub.get_tasks()){
             if(t.isDone()){
                 done += 1;
             }
         }
-        holder.TASK_DONE.setText("SKOŃCZONE: " + done);
+        String status = done + "/" + sub.get_tasks().size();
+        holder.TASKS_STATUS.setText(status);
+        holder.PROG_BAR.setMax(sub.get_tasks().size());
+        holder.PROG_BAR.setProgress(done);
         holder.IMG_SHARE.setImageResource(R.drawable.ic_menu_share);
+        holder.IMG_EDIT.setImageResource(R.drawable.ic_edit_doc);
 //        holder.IMG_SHARE.setImageResource(android.R.drawable.ic_menu_share);
     }
 
@@ -87,8 +92,9 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
     }
 
     public class SubjectHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView ID, SEM, NAME, DETAILS, TASK_COUNT, TASK_DONE;
-        public ImageView IMG_SHARE;
+        public TextView ID, SEM, NAME, DETAILS, TASKS_STATUS;
+        public ImageView IMG_SHARE, IMG_EDIT;
+        public ProgressBar PROG_BAR;
         public View CONTAINER;
 
         public SubjectHolder(View itemView) {
@@ -98,12 +104,14 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
             SEM = (TextView) itemView.findViewById(R.id.text_sem);
             NAME = (TextView) itemView.findViewById(R.id.text_name);
             DETAILS = (TextView) itemView.findViewById(R.id.text_details);
-            TASK_COUNT = (TextView) itemView.findViewById(R.id.text_task_count);
-            TASK_DONE = (TextView) itemView.findViewById(R.id.text_task_done);
-            IMG_SHARE = (ImageView) itemView.findViewById(R.id.img_avatar);
+            TASKS_STATUS = (TextView) itemView.findViewById(R.id.text_tasks_status);
+            IMG_SHARE = (ImageView) itemView.findViewById(R.id.img_share_sub);
+            IMG_EDIT = (ImageView) itemView.findViewById(R.id.img_edit_sub);
+            PROG_BAR = (ProgressBar) itemView.findViewById(R.id.subject_progress_bar);
 
             CONTAINER.setOnClickListener(this);
             IMG_SHARE.setOnClickListener(this);
+            IMG_EDIT.setOnClickListener(this);
         }
 
 
@@ -111,8 +119,10 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
         public void onClick(View view) {
             if (view.getId() == R.id.subject_item_root){
                 _itemClickCallback.onItemClick(getAdapterPosition());
-            } else {
-                _itemClickCallback.onItemIconClick(getAdapterPosition());
+            } else if (view.getId() == R.id.img_share_sub) {
+                _itemClickCallback.onItemShareIconClick(getAdapterPosition());
+            } else if (view.getId() == R.id.img_edit) {
+                _itemClickCallback.onItemEditIconClick(getAdapterPosition());
             }
         }
     }

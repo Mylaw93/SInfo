@@ -1,5 +1,6 @@
 package com.example.mwars.sinfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -19,11 +20,13 @@ import com.example.mwars.sinfo.ui.SubjectFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -84,14 +87,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         FragmentManager fManager = getSupportFragmentManager();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_subject) {
+            toolbar.setTitle("PRZEDMIOTY");
             fManager.beginTransaction().replace(R.id.container_content, new SubjectFragment(), "SUB_FRAGMENT").commit();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_tasks) {
+            toolbar.setTitle("ZALICZENIA");
             fManager.beginTransaction().replace(R.id.container_content, new SubjectFragment(), "FAV_FRAGMENT").commit();
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_exams) {
+            toolbar.setTitle("EGZAMINY");
+            fManager.beginTransaction().replace(R.id.container_content, new SubjectFragment(), "SUB_FRAGMENT").commit();
+        } else if (id == R.id.nav_projects) {
+            toolbar.setTitle("PROJEKTY");
             fManager.beginTransaction().replace(R.id.container_content, new SubjectFragment(), "SUB_FRAGMENT").commit();
         } else if (id == R.id.nav_manage) {
-            fManager.beginTransaction().replace(R.id.container_content, new SubjectFragment(), "SUB_FRAGMENT").commit();
+            toolbar.setTitle("USTAWIENIA");
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
             fManager.beginTransaction().replace(R.id.container_content, new SubjectFragment(), "SUB_FRAGMENT").commit();
         } else if (id == R.id.nav_send) {

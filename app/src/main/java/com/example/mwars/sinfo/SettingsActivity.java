@@ -6,18 +6,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by mwars on 26.04.2017.
+ * Created by mwars on 10.05.2017.
  */
 
-public class SubjectTaskDetailActivity extends AppCompatActivity {
-
+public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subject_task_detail);
+        setContentView(R.layout.activity_settings);
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
+        if(actionBar != null)
             actionBar.setDisplayHomeAsUpEnabled(true);
-        }
     }
 }

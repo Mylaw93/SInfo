@@ -20,25 +20,69 @@
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp">
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:id="@+id/check_box_is_done"
+            android:textAlignment="gravity"
+            android:layout_height="18dp"
+            android:layout_marginTop="4dp" />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_margin="4dp"
             android:layout_gravity="center"
-            android:weightSum="1"
+            android:weightSum="5"
             android:elevation="0dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="4.2">
 
-                <CheckBox
+                <TextView
+                    android:id="@+id/text_group_id"
+                    android:text="TYP ZALICZENIA"
+                    android:textSize="14sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/check_box_is_done"
-                    android:padding="8dp" />
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="normal|bold"
+                    android:layout_margin="2dp" />
+
+                <TextView
+                    android:id="@+id/text_name"
+                    android:text="SUBJECT_NAME"
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:gravity="fill_vertical"
+                    android:layout_margin="2dp" />
+
+                <TextView
+                    android:id="@+id/text_details"
+                    android:text="SUBJECT DETAILS INFORMATION"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:gravity="fill_vertical"
+                    android:layout_margin="2dp"
+                    android:textSize="16sp"
+                    android:textStyle="normal|italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:weightSum="3">
 
                 <TextView
                     android:id="@+id/text_id"
@@ -78,7 +122,7 @@
                     android:visibility="gone" />
 
                 <ImageView
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     app:srcCompat="@android:drawable/btn_star_big_off"
                     android:id="@+id/img_fav"
                     android:title="Favorite"
@@ -86,13 +130,12 @@
                     android:background="@drawable/background_state_drawable"
                     android:showAsAction="ifRoom"
                     android:layout_margin="4dp"
-                    android:padding="16dp"
-                    android:layout_gravity="top"
-                    android:backgroundTint="@color/colorPrimary" />
+                    android:padding="4dp"
+                    android:layout_weight="1" />
 
                 <ImageView
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/ic_menu_edit"
+                    android:layout_height="0dp"
+                    app:srcCompat="@drawable/ic_edit_doc"
                     android:id="@+id/img_edit"
                     android:title="Edit"
                     android:actionProviderClass="android.widget.ShareActionProvider"
@@ -100,49 +143,23 @@
                     android:background="@drawable/background_state_drawable"
                     android:showAsAction="ifRoom"
                     android:layout_margin="4dp"
-                    android:padding="16dp"
-                    android:layout_gravity="top"
-                    android:backgroundTint="@color/colorPrimary" />
+                    android:padding="4dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_height="0dp"
+                    app:srcCompat="@drawable/ic_menu_share"
+                    android:id="@+id/img_share_task"
+                    android:showAsAction="ifRoom"
+                    android:title="Share"
+                    android:actionProviderClass="android.widget.ShareActionProvider"
+                    android:background="@drawable/background_state_drawable"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:padding="4dp"
+                    android:layout_margin="4dp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center">
-
-                <TextView
-                    android:id="@+id/text_group_id"
-                    android:text="TYP ZALICZENIA"
-                    android:textSize="14sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?attr/textAppearanceListItem"
-                    android:layout_gravity="center_vertical"
-                    android:textStyle="normal|bold"
-                    android:layout_margin="2dp" />
-
-                <TextView
-                    android:id="@+id/text_name"
-                    android:text="SUBJECT_NAME"
-                    android:textSize="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?attr/textAppearanceListItem"
-                    android:gravity="fill_vertical"
-                    android:layout_margin="2dp" />
-
-                <TextView
-                    android:id="@+id/text_details"
-                    android:text="SUBJECT DETAILS INFORMATION"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?attr/textAppearanceListItem"
-                    android:gravity="fill_vertical"
-                    android:layout_margin="2dp"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

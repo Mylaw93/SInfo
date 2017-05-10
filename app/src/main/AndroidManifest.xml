@@ -52,6 +52,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.mwars.sinfo.SubjectTaskActivity" />
         </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.mwars.sinfo.SubjectTaskActivity" />
+        </activity>
     </application>
 
 </manifest>

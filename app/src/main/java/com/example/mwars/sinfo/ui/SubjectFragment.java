@@ -11,13 +11,12 @@ import android.view.ViewGroup;
 
 import com.example.mwars.sinfo.R;
 import com.example.mwars.sinfo.SubjectTaskActivity;
+import com.example.mwars.sinfo.SubjectTaskEditActivity;
 import com.example.mwars.sinfo.adapter.SubjectListAdapter;
 import com.example.mwars.sinfo.model.Subject;
 import com.example.mwars.sinfo.model.SubjectContent;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by mwars on 08.04.2017.
@@ -29,7 +28,7 @@ public class SubjectFragment extends Fragment  implements SubjectListAdapter.Ite
     private final static String EXTRAS_ID = "EXTRAS_ID";
 
     private static ArrayList<Subject> _SUBJECT_DATA;
-    private static Map<String, Subject> _SUBJECT_MAP = new HashMap<>();
+//    private static Map<String, Subject> _SUBJECT_MAP = new HashMap<>();
 
     public static SubjectListAdapter subListAdapter;
 
@@ -41,7 +40,7 @@ public class SubjectFragment extends Fragment  implements SubjectListAdapter.Ite
 
     private void initDataset(){
         _SUBJECT_DATA = SubjectContent.getSubjectItems();
-        _SUBJECT_MAP = SubjectContent.getMapItems();
+//        _SUBJECT_MAP = SubjectContent.getMapItems();
     }
 
     @Override
@@ -70,13 +69,22 @@ public class SubjectFragment extends Fragment  implements SubjectListAdapter.Ite
     }
 
     @Override
-    public void onItemIconClick(int pos) {
+    public void onItemShareIconClick(int pos) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT,
                         _SUBJECT_DATA.get(pos).get_name() + " \n" +
                         _SUBJECT_DATA.get(pos).get_details());
         startActivity(Intent.createChooser(intent, "Udostępniasz: " + _SUBJECT_DATA.get(pos).get_name()));
+    }
+
+    @Override
+    public void onItemEditIconClick(int pos) {
+        Intent intent = new Intent(super.getContext(), SubjectTaskEditActivity.class);
+        Bundle extras = new Bundle();
+        extras.putInt(EXTRAS_ID, _SUBJECT_DATA.get(pos).get_id());
+        intent.putExtra(BUNDLE_EXTRAS, extras);
+        startActivity(intent);
     }
 }
 

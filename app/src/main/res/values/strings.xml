@@ -9,4 +9,5 @@
     <string name="title_subject_detail">SZCZEGÓŁY PRZEDMIOTU</string>
     <string name="title_subject_task_edit">EDYCJA ZALICZENIA</string>
     <string name="title_subject_task_detail">SZCZEGÓŁY ZALICZENIA</string>
+    <string name="title_settings">USTAWIENIA</string>
 </resources>

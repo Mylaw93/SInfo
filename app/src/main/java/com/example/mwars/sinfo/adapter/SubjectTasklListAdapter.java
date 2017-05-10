@@ -87,7 +87,7 @@ public class SubjectTasklListAdapter extends RecyclerView.Adapter<SubjectTasklLi
             holder.IMG_FAV.setImageResource(android.R.drawable.btn_star_big_on);
         else
             holder.IMG_FAV.setImageResource(android.R.drawable.btn_star_big_off);
-        holder.IMG_EDIT.setImageResource(R.drawable.ic_menu_manage);
+        holder.IMG_EDIT.setImageResource(R.drawable.ic_edit_doc);
     }
 
 
@@ -131,7 +131,7 @@ public class SubjectTasklListAdapter extends RecyclerView.Adapter<SubjectTasklLi
                 _itemClickCallback.onFavImgClick(getAdapterPosition());
             } else if (view.getId() == R.id.img_edit) {
                 _itemClickCallback.onEditImgClick(getAdapterPosition());
-            } else if (view.getId() == R.id.switch_is_done) {
+            } else if (view.getId() == R.id.check_box_is_done) {
                 _itemClickCallback.onIsDoneClick(getAdapterPosition());
             }
         }
