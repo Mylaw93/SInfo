@@ -61,14 +61,15 @@ public class SubjectTaskFragment extends Fragment implements SubjectTasklListAda
 
 
     public void initDataset() {
-        String subID = getArguments().getString(ARG_ITEM_ID);
-        _SUBJECT = SubjectContent.getMapItems().get(subID);
-        _TASK_DATA = _SUBJECT.get_tasks();
-//        _SUBJECT_DATA = SubjectContent.getMapItems();
-//        Log.d("__SUB_ID_: ", subID);
-//        Log.d("_SUBJECT_", _SUBJECT.get_name());
-//        for (Task t : _TASK_DATA)
-//            Log.d("LOG: ", t.toString());
+        if (getArguments().containsKey(ARG_ITEM_ID)) {
+            String subID = getArguments().getString(ARG_ITEM_ID);
+            _SUBJECT = SubjectContent.getMapItems().get(subID);
+            _TASK_DATA = _SUBJECT.get_tasks();
+        } else {
+            for(int i = 0; i <= SubjectContent.getSubjectItems().size(); i++){
+                _TASK_DATA.addAll(SubjectContent.getSubjectItems().get(i).get_tasks());
+            }
+        }
     }
 
 

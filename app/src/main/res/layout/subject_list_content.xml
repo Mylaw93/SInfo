@@ -12,14 +12,14 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:weightSum="1"
         android:background="@drawable/item_style_background"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:translationZ="6dp"
         android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp">
+        android:layout_marginTop="4dp"
+        android:layout_height="90dp">
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -56,7 +56,7 @@
                 android:textAppearance="?attr/textAppearanceListItem"
                 android:layout_margin="6dp"
                 android:elevation="0dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:layout_gravity="top|start" />
 
             <TextView
@@ -75,12 +75,13 @@
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="4.3">
+                android:layout_weight="4.3"
+                android:layout_marginLeft="4dp">
 
                 <TextView
                     android:id="@+id/text_name"
                     android:text="SUBJECT_NAME"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceListItem"
                     android:gravity="fill_vertical"
@@ -93,7 +94,7 @@
                     android:layout_height="match_parent"
                     android:textAppearance="?attr/textAppearanceListItem"
                     android:visibility="visible"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:textStyle="normal|italic"
                     android:gravity="top" />
 

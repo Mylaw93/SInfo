@@ -3,52 +3,66 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="TextView"
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/item_style_background"
+        android:translationZ="6dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:padding="6dp">
 
-    <AutoCompleteTextView
-        android:text="AutoCompleteTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/autoCompleteTextView" />
+        <TextView
+            android:text="Subject Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_subject_name" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
+        <AutoCompleteTextView
+            android:text="Zmień nazwę przedmiotu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ac_text_subject" />
 
-    <AutoCompleteTextView
-        android:text="AutoCompleteTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/autoCompleteTextView2" />
+        <TextView
+            android:text="Semestr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_semester"
+            android:elevation="0dp" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
+        <AutoCompleteTextView
+            android:text="Wybierz semestrz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ac_text_semester" />
 
-    <AutoCompleteTextView
-        android:text="AutoCompleteTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/autoCompleteTextView3" />
+        <TextView
+            android:text="Opis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_desc" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5" />
+        <AutoCompleteTextView
+            android:text="Ustaw szczegóły przedmiotu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_description" />
 
-    <AutoCompleteTextView
-        android:text="AutoCompleteTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/autoCompleteTextView4" />
+        <TextView
+            android:text="Ulubione"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_is_favorite" />
+
+        <AutoCompleteTextView
+            android:text="tak/nie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ac_text_is_fav" />
+    </LinearLayout>
 
 </LinearLayout>
